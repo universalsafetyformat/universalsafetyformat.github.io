@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Universal Safety Format – Editor UI</title>
+    <link>/tools/usfedit/editor_ui/</link>
+    <description>Recent content in Editor UI on Universal Safety Format</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/tools/usfedit/editor_ui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

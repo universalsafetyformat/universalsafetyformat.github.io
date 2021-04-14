@@ -3,7 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tools/usfedit/installation/</loc>
+  </url>
+  
+  <url>
+    <loc>/tools/usfedit/editor_ui/</loc>
+  </url>
+  
+  <url>
+    <loc>/tools/usfedit/getting_started/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/usfedit/</loc>
+  </url>
+  
+  <url>
+    <loc>/tools/usfedit/import_models/</loc>
   </url>
   
   <url>
@@ -11,7 +27,15 @@
   </url>
   
   <url>
+    <loc>/tools/usfedit/troubleshooting/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/taskleveldesigntool/</loc>
+  </url>
+  
+  <url>
+    <loc>/tools/usf4cpp/</loc>
   </url>
   
   <url>
