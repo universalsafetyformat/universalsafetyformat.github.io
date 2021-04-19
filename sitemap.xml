@@ -3,23 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tools/usfedit/installation/</loc>
+    <loc>/tools/safetymodeler/installation/</loc>
   </url>
   
   <url>
-    <loc>/tools/usfedit/editor_ui/</loc>
+    <loc>/tools/safetymodeler/editor_ui/</loc>
   </url>
   
   <url>
-    <loc>/tools/usfedit/getting_started/</loc>
+    <loc>/tools/safetymodeler/getting_started/</loc>
   </url>
   
   <url>
-    <loc>/tools/usfedit/</loc>
+    <loc>/tools/safetymodeler/</loc>
   </url>
   
   <url>
-    <loc>/tools/usfedit/import_models/</loc>
+    <loc>/tools/safetymodeler/import_models/</loc>
   </url>
   
   <url>
@@ -27,11 +27,19 @@
   </url>
   
   <url>
-    <loc>/tools/usfedit/troubleshooting/</loc>
+    <loc>/tools/safetymodeler/troubleshooting/</loc>
   </url>
   
   <url>
     <loc>/tools/taskleveldesigntool/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/metamodel/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/transformations/</loc>
   </url>
   
   <url>
@@ -43,11 +51,11 @@
   </url>
   
   <url>
-    <loc>/introduction/</loc>
+    <loc>/concepts/</loc>
   </url>
   
   <url>
-    <loc>/metamodel/</loc>
+    <loc>/introduction/</loc>
   </url>
   
   <url>
@@ -56,10 +64,6 @@
   
   <url>
     <loc>/tools/</loc>
-  </url>
-  
-  <url>
-    <loc>/transformations/</loc>
   </url>
   
   <url>
