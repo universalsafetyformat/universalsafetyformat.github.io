@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>USF Transformations | Universal Safety Format</title><meta property="og:title" content="USF Transformations" />
-<meta property="og:description" content="The USF transformation language
+<meta property="og:description" content="How to define safety mechanisms using the USF transformation language
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/concepts/transformations/" />
 
 <meta itemprop="name" content="USF Transformations">
-<meta itemprop="description" content="The USF transformation language
+<meta itemprop="description" content="How to define safety mechanisms using the USF transformation language
 ">
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="USF Transformations"/>
-<meta name="twitter:description" content="The USF transformation language
+<meta name="twitter:description" content="How to define safety mechanisms using the USF transformation language
 "/>
 
 
@@ -217,9 +217,24 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#nullam-dictum-felis-eu-pede-mollis-pretium">Nullam dictum felis eu pede mollis pretium</a></li>
-    <li><a href="#etiam-sit-amet-orci-eget-eros-faucibus-tincidunt">Etiam sit amet orci eget eros faucibus tincidunt</a></li>
-    <li><a href="#curabitur-ullamcorper-ultricies-nisi">Curabitur ullamcorper ultricies nisi</a></li>
+    <li><a href="#weaving-as-model-transformation">Weaving as Model Transformation</a></li>
+    <li><a href="#example-utl-transformation-for-a-watchdog-safety-mechanism">Example: UTL Transformation for a <em>Watchdog</em> safety mechanism</a></li>
+    <li><a href="#overview-of-utl-concepts">Overview of UTL Concepts</a>
+      <ul>
+        <li><a href="#expression-language-with-types">Expression language with types</a></li>
+        <li><a href="#transformation-signatures">Transformation signatures</a></li>
+        <li><a href="#operations">Operations</a></li>
+        <li><a href="#blocktype-constructors">Blocktype constructors</a></li>
+        <li><a href="#abstracting-from-domain-specific-details">Abstracting from domain-specific details</a></li>
+      </ul>
+    </li>
+    <li><a href="#transformation-engine-for-utl">Transformation Engine for UTL</a>
+      <ul>
+        <li><a href="#executing-transformations">Executing transformations</a></li>
+        <li><a href="#support-for-structural-models">Support for structural models</a></li>
+        <li><a href="#support-for-program-code-esp-c">Support for program code, esp. C</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -257,15 +272,61 @@
             
 <div class="td-content">
 	<h1>USF Transformations</h1>
-        <div class="lead">The USF transformation language</div>
+        <div class="lead">How to define safety mechanisms using the USF transformation language</div>
 	
-	<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.</p>
-<h2 id="nullam-dictum-felis-eu-pede-mollis-pretium">Nullam dictum felis eu pede mollis pretium</h2>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.</p>
-<h2 id="etiam-sit-amet-orci-eget-eros-faucibus-tincidunt">Etiam sit amet orci eget eros faucibus tincidunt</h2>
-<p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
-<h2 id="curabitur-ullamcorper-ultricies-nisi">Curabitur ullamcorper ultricies nisi</h2>
-<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>
+	<p>The USF transformation language (UTL) operates on the USF metamodel (aka <em>blockmodel</em>) and allows to define transformations. Executing a transformation on a USF blockmodel will automatically apply a safety mechanism to either models or code.</p>
+<h2 id="weaving-as-model-transformation">Weaving as Model Transformation</h2>
+<p>The foundation for weaving functional safety mechanisms into models and code is a bidirectional mapping between these target domains and the blockmodel. Based on this mapping, any weaving mechanism can be defined as a model transformation on the blockmodel. The blockmodel-specific transformation language <em>UTL</em> provides a convenient way to specify mechanisms in terms of the blockmodel domain.</p>
+<p>UTL is an imperative-style language, it&rsquo;s basic entity being a <em>transformation</em>. The language concepts can roughly be divided into the following parts:</p>
+<ul>
+<li>transformation signatures</li>
+<li>general features (variable definitions, control structures, function calls)</li>
+<li>operations on concepts from the blockmodel</li>
+<li>special concepts (e.g., a constructor for blocktypes)</li>
+</ul>
+<p>By design, UTL can be expressed using a convenient textual concrete syntax, but can be enriched with more elaborate notational elements if the tool platform allows it (e.g., when using a projectional editor like <a href="https://www.itemis.com/en/it-services/methods-and-tools/mps?hsLang=en">JetBrains MPS</a>).</p>
+<p>In order to allow a concise way of specifying transformations and at the same time provide the target users (i.e., mostly safety engineers) with a language which is easy to use also for non-developers, UTL is not a general-purpose transformation language (compared to e.g., ATL). The available concepts are restricted to what is required for specifying safety mechanisms.</p>
+<h2 id="example-utl-transformation-for-a-watchdog-safety-mechanism">Example: UTL Transformation for a <em>Watchdog</em> safety mechanism</h2>
+<p>The following screenshot shows an example of a transformation specified in UTL: a watchdog safety mechanism. The example will be used to explain the UTL concepts in the following sections.</p>
+<p><img src="TL-script-example.png" alt="UTL example transformation (i.e., simple watchdog safety mechanism)" title="UTL example transformation"></p>
+<h2 id="overview-of-utl-concepts">Overview of UTL Concepts</h2>
+<p>This section gives an overview on the various concepts of the language.</p>
+<h3 id="expression-language-with-types">Expression language with types</h3>
+<p>UTL features an expression language with the usual primitive types (e.g., <code>boolean</code>, <code>integer</code>, <code>string</code>) and operations on these types. In addition, a subset of the block metamodel concepts are available as types in UTL, e.g., <code>Block</code>, <code>DataPort</code> and <code>ControlPort</code>.</p>
+<h3 id="transformation-signatures">Transformation signatures</h3>
+<p>Calling a transformation resembles a function call. I.e., the transformation signature consists of a name, a set of named parameters with types and a return type (see item <span style="font-size:larger;">❶</span> in the example screenshot above). This signature serves as the transformation&rsquo;s interface to the annotations in the domain model.</p>
+<p>Signatures might also include blocktype definitions (according to the block metamodel). E.g., the transformation depicted at item <span style="font-size:larger;">➋</span> in the example uses the blocktype <code>TriggerWatchdog</code>.</p>
+<h3 id="operations">Operations</h3>
+<p>The largest part of UTL is the set of operations on blockmodel concepts. These can be divided into two groups. The first group of operations are implicitly defined by the USF metamodel (e.g., getters and setters for attributes of concepts). The second group consists of helper operations which provide additional logic or shortcuts for typical patterns (e.g., <code>createConnection()</code> for creating new connection elements and linking them to the proper <code>Port</code> nodes).</p>
+<p>For most operations there are two concrete syntaxes, either plain:</p>
+<pre><code>  op(p1, p2, ...)
+</code></pre><p>or dot-notation:</p>
+<pre><code>  p1.op(p2, ...)
+</code></pre><p>The two versions can easily be transformed into each other (syntactic sugar).</p>
+<h3 id="blocktype-constructors">Blocktype constructors</h3>
+<p>A common task in USF transformations is the creation of new block structures, which is accomplished by creating a new <code>Blocktype</code> element. In order to avoid building these elements from scratch using the operations described above, UTL supports <em>constructor</em> syntax. A constructor call creates a new blocktype, using an existing one as a blueprint. This is shown for the <code>TriggerWatchdog</code> blocktype in the example (item <span style="font-size:larger;">➌</span> in the screenshot).</p>
+<p>The blueprint <code>Blocktype</code> can be defined using any USF metamodel editor. In the example, it has been defined using a textual syntax as part of the transformation signature.</p>
+<p>The first parameter of the constructor is the name of the new blocktype. With the second parameter a domain-specific implementation of type <code>BlockImpl&lt;T&gt;</code> can be provided.</p>
+<h3 id="abstracting-from-domain-specific-details">Abstracting from domain-specific details</h3>
+<p>The USF metamodel and the UTL are domain-agnostic, but in order to apply transformations to domain-specific models it is required to handle domain-specific details. The memento-like pattern based on <code>BlockImpl&lt;T&gt;</code> and the constructor syntax can be used to inject domain-specific behavior as implementation of the created blocktype. E.g., for the C domain this would be a C code snippet which adheres to the interface defined by the blocktype&rsquo;s ports.</p>
+<h2 id="transformation-engine-for-utl">Transformation Engine for UTL</h2>
+<p>UTL allows to model safety mechanisms as domain-agnostic transformation scripts. The following section describes how these scripts can be executed.</p>
+<h3 id="executing-transformations">Executing transformations</h3>
+<p>In an environment for applying USF transformations to domain-specific models, the following building blocks are needed: a transformation script defined in UTL, an input model (in domain-specific and USF blockmodel representations), a library with domain-specific implementation details (e.g., glue code). The following diagram gives an overview, using C-code as example domain.</p>
+<p><img src="TL-overview.png" alt="Applying transformations (example: C domain)" title="Applying transformations (example: C domain)"></p>
+<p>For execution of transformation scripts, there are different options:</p>
+<ul>
+<li>using an interpreter with a domain-specific back-end</li>
+<li>translating the input domain-model into a USF blockmodel and executing the transformation generically</li>
+<li>translating the transformation script into executable code (e.g., Java) which can be executed on a representation of the domain-specific model</li>
+</ul>
+<p>The best option for the implementation of a UTL transformation engine depends on the tool environment where it has to integrate as well as on the target domain. Esp. for program code domains (e.g., C code) the mapping to USF concepts is not straightforward.</p>
+<h3 id="support-for-structural-models">Support for structural models</h3>
+<p>The mapping from USF models to target domains which represent hierarchically structured architectures with components and ports is quite straightforward. USF blocktypes and blocks will represent domain components, and port concepts can be mapped 1:1. Hierarchies are natively supported by USF as well. Therefore, the execution of UTL transformation scripts on these structures is easily possible.</p>
+<p>Typical industry-relevant domains from this category are SysML (and SysML-like proprietary models), AUTOSAR and Simulink.</p>
+<h3 id="support-for-program-code-esp-c">Support for program code, esp. C</h3>
+<p>In compilers and other code-related tools, program code (e.g., C) is represented as abstract syntax tree (AST). In order to map this domain to USF, elements of the AST have to be represented by USF blocks and other elements. USF has been designed to cover this, esp. by supporting dataflow and controlflow concepts. Despite this support the mapping between a C AST and USF block models is not straightforward.</p>
+<p>In our reference implementation (see <a href="/tools/safetyweaver">SafetyWeaver</a> page), a UTL interpreter with a domain-specific plug-in has been implemented. The C-domain plug-in creates the USF model from the input C code on the fly, starting from the annotated code elements (e.g., C functions or C blocks). The UTL interpreter will create new blocks and connections depending on the actual transformation scripts. In a post-processing step the resulting USF model is converted into C-AST elements and manifested as code. The control-flow connections on USF block level determine the order of the newly created C code blocks.</p>
 
         <div class="section-index">
     
@@ -286,8 +347,7 @@
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 1, 0001
-</div>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified April 20, 2021</div>
 </div>
 
           </main>
@@ -304,7 +364,7 @@
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 SAFE4I Consortium All Rights Reserved</small>
+        <small class="text-white">&copy; 2021 SAFE4I Consortium. All Rights Reserved</small>
         
 	
 		
