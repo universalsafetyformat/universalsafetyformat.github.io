@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.79.0" /><link rel="alternate" type="application/rss&#43;xml" href="/tools/safetymodeler/getting_started/index.xml">
-<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.82.1" /><link rel="alternate" type="application/rss&#43;xml" href="/tools/safetymodeler/getting_started/index.xml">
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -19,27 +19,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Getting Started | Universal Safety Format</title><meta property="og:title" content="Getting Started" />
-<meta property="og:description" content="Here we give a brief overview on how start with USFedit by creating a new project and models from scratch. 
+<meta property="og:description" content="Here we give a brief overview on how start with SafetyModeler by creating a new project and models from scratch. 
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tools/safetymodeler/getting_started/" />
 
 <meta itemprop="name" content="Getting Started">
-<meta itemprop="description" content="Here we give a brief overview on how start with USFedit by creating a new project and models from scratch. 
-">
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Here we give a brief overview on how start with SafetyModeler by creating a new project and models from scratch. 
+"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting Started"/>
-<meta name="twitter:description" content="Here we give a brief overview on how start with USFedit by creating a new project and models from scratch. 
+<meta name="twitter:description" content="Here we give a brief overview on how start with SafetyModeler by creating a new project and models from scratch. 
 "/>
 
 
 
 
 
-
-
-<link rel="preload" href="/scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css" as="style">
-<link href="/scss/main.min.7822b7c057b4a810809dabf336eddb9515f800a3275417dc6ae2da2d35a0d1d1.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.2f1535fddc7c48431528a1616a5e764a7e2c2fec94c3c7c136de19bc8bc9fb92.css" as="style">
+<link href="/scss/main.min.2f1535fddc7c48431528a1616a5e764a7e2c2fec94c3c7c136de19bc8bc9fb92.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -456,7 +453,7 @@
             
 <div class="td-content">
 	<h1>Getting Started</h1>
-        <div class="lead">Here we give a brief overview on how start with USFedit by creating a new project and models from scratch.</div>
+        <div class="lead">Here we give a brief overview on how start with SafetyModeler by creating a new project and models from scratch.</div>
 	
 	<h2 id="creating-a-usf-project">Creating a USF Project</h2>
 <p>To create a new USF project, choose from the File menu New, and then Other…</p>
@@ -518,7 +515,7 @@ Template Types appear in the Types Diagram and in the Block Diagram. To create a
 <p><img src="template_types.png" alt="Template Types" title="Template Types"></p>
 <p>How to use those Types is shown in following figure.  The block c:Checker offers two ports with the same template type. In context of UC 1 the input port is connected with an int port. In context of UC 2 the input port is connected with a float port. So, a generic Checker BlockType can be used in different situations.</p>
 <p><img src="use_template_types.png" alt="Use Template Types" title="Use Template Types"></p>
-<p>To derive the actually used types, USFedit provides the command Infer Types. To execute the command, a BlockType or model file has to be selected!</p>
+<p>To derive the actually used types, SafetyModeler provides the command Infer Types. To execute the command, a BlockType or model file has to be selected!</p>
 <p><img src="infer_command.png" alt="Infer Command" title="Infer Command"></p>
 <p>The command will infer types by the context of template typed ports and print the report in the console view. Additionally, Template Assignments will created for every port, where a type could be inferred. For the above example, the report is shown in the following figure. Note, that only the input ports of the c:Checker blocks are assigned but not the result ports. That’s because of missing context of the result ports. Note also, that one Template Type on one block can have only one resolved concrete type. So in the above example, the result ports would have to match the input ports, since both use the same Template Type! Otherwise, the report will state, that the Template Type is ambiguous.</p>
 <p><img src="inference_report.png" alt="Inference Report" title="Inference Report"></p>
@@ -563,7 +560,7 @@ In the Project Explorer, the AIRD file can be expanded and lists all available d
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified April 19, 2021</div>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 5, 2021</div>
 </div>
 
           </main>
@@ -607,7 +604,7 @@ In the Project Explorer, the AIRD file can be expanded and lists all available d
 
 
 
-<script src="/js/main.min.60ce8ede033634e2c17e595d9af980be5f56cfdafe34f9893a45ab03f34574c6.js" integrity="sha256-YM6O3gM2NOLBflldmvmAvl9Wz9r&#43;NPmJOkWrA/NFdMY=" crossorigin="anonymous"></script>
+<script src="/js/main.min.83c801f8b40e873a6f7b6e76bc656950086c77f68b018e9c7d9e8e270da99176.js" integrity="sha256-g8gB&#43;LQOhzpve252vGVpUAhsd/aLAY6cfZ6OJw2pkXY=" crossorigin="anonymous"></script>
 
 
 

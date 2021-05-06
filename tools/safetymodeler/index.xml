@@ -22,11 +22,11 @@
       <description>
         
         
-        &lt;h2 id=&#34;installation-of-the-usfedit-plugin&#34;&gt;Installation of the USFedit plugin&lt;/h2&gt;
+        &lt;h2 id=&#34;installation-of-the-safetymodeler-plugin&#34;&gt;Installation of the SafetyModeler plugin&lt;/h2&gt;
 &lt;p&gt;The installation requires a running Eclipse Modeling Tools installation, which can be downloaded from &lt;a href=&#34;https://download.eclipse.org&#34;&gt;https://download.eclipse.org&lt;/a&gt;. Eclipse 2020-12 or higher is required to install the plugin.&lt;/p&gt;
-&lt;p&gt;To install the USFedit plugin run Install New Software (via Help &amp;gt; Install New Software) in the Eclipse environment.&lt;/p&gt;
+&lt;p&gt;To install the SafetyModeler plugin run Install New Software (via Help &amp;gt; Install New Software) in the Eclipse environment.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;installeditor.png&#34; alt=&#34;Install Editor plugin&#34; title=&#34;Install Editor plugin&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Add a new repository location and install USFedit from there.&lt;/p&gt;
+&lt;p&gt;Add a new repository location and install SafetyModeler from there.&lt;/p&gt;
 
       </description>
     </item>
@@ -54,7 +54,7 @@ The two checkboxes below the list of diagrams are only relevant, if a representa
 &lt;p&gt;The tool palette on the right hand side is organized in several groups. Block – Block Type – Port provides tools to create usual blocks, ports and connections to model data flow domain. The section Error Handling offers creation tools for error handling blocks. The section Control Flow provides tools to model the control flow of blocks. This involves blocks to split the control flow, such as Decision Node or Fork Node. Also, with the Send Node and Receive Node, asynchronous control flow can be modelled. The Safety mechanism section offers tools to instantiate a Safety mechanism and assign arguments and add configurations to the safety mechanism instance.&lt;/p&gt;
 &lt;h2 id=&#34;overview-of-the-safety-mechanism-diagram&#34;&gt;Overview of the Safety mechanism Diagram&lt;/h2&gt;
 &lt;p&gt;In a Safety Measure Diagram, types of Safety Measures can be defined. A Safety Measure Type specifies all required parameters of a safety measure. Parameters are distinguished into model parameter and primitive parameteter, model parameter are parameter which take a model element as argument while primitive parameter take a simple value as argument (like “true”/false” or “33”). The figure below shows two Safety Measure Types each with a list of parameters. Primitive parameters can define default values which are used for Safety Measure by default if no other value is defined.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;safety_mechanism_definition.png&#34; alt=&#34;Safety mechanism definition&#34; title=&#34;Define a safety mechanism in USFedit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;safety_mechanism_definition.png&#34; alt=&#34;Safety mechanism definition&#34; title=&#34;Define a safety mechanism in SafetyModeler&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The Safety Measure Type provides the interface definition for the transformation it self which is defined via USF Transformation language. There is a context menu action avalible for the Safety Measure Type to navigate to the related transformation (“Show Transformation”). If no transformation is avalible a skellton body will be generated which can then be filled with the transformation instructions.&lt;/p&gt;
 &lt;h2 id=&#34;overview-usf-transformation-editor&#34;&gt;Overview USF Transformation Editor&lt;/h2&gt;
 &lt;p&gt;The transformation editor provides textual editing capabilities to write a transformation capturing the steps need to secure the system. The USF transformation language is whitespace-aware similar to Python and all instructions need indentations to separate them from the main concept areas which are transformation name and parameter list, preconditions, rules and return instructions.&lt;/p&gt;
@@ -146,7 +146,7 @@ Template Types appear in the Types Diagram and in the Block Diagram. To create a
 &lt;p&gt;&lt;img src=&#34;template_types.png&#34; alt=&#34;Template Types&#34; title=&#34;Template Types&#34;&gt;&lt;/p&gt;
 &lt;p&gt;How to use those Types is shown in following figure.  The block c:Checker offers two ports with the same template type. In context of UC 1 the input port is connected with an int port. In context of UC 2 the input port is connected with a float port. So, a generic Checker BlockType can be used in different situations.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;use_template_types.png&#34; alt=&#34;Use Template Types&#34; title=&#34;Use Template Types&#34;&gt;&lt;/p&gt;
-&lt;p&gt;To derive the actually used types, USFedit provides the command Infer Types. To execute the command, a BlockType or model file has to be selected!&lt;/p&gt;
+&lt;p&gt;To derive the actually used types, SafetyModeler provides the command Infer Types. To execute the command, a BlockType or model file has to be selected!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;infer_command.png&#34; alt=&#34;Infer Command&#34; title=&#34;Infer Command&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The command will infer types by the context of template typed ports and print the report in the console view. Additionally, Template Assignments will created for every port, where a type could be inferred. For the above example, the report is shown in the following figure. Note, that only the input ports of the c:Checker blocks are assigned but not the result ports. That’s because of missing context of the result ports. Note also, that one Template Type on one block can have only one resolved concrete type. So in the above example, the result ports would have to match the input ports, since both use the same Template Type! Otherwise, the report will state, that the Template Type is ambiguous.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;inference_report.png&#34; alt=&#34;Inference Report&#34; title=&#34;Inference Report&#34;&gt;&lt;/p&gt;

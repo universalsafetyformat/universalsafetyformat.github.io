@@ -1,88 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/tools/safetymodeler/installation/</loc>
-    <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-05T11:14:36+02:00</lastmod>
+  </url><url>
     <loc>/tools/safetymodeler/editor_ui/</loc>
-    <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-05T11:16:43+02:00</lastmod>
+  </url><url>
     <loc>/tools/safetymodeler/getting_started/</loc>
-    <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-05T11:18:14+02:00</lastmod>
+  </url><url>
     <loc>/tools/safetymodeler/</loc>
-    <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-05-05T11:10:34+02:00</lastmod>
+  </url><url>
     <loc>/tools/safetymodeler/import_models/</loc>
     <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tools/safetyweaver/</loc>
     <lastmod>2021-04-20T17:14:13+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tools/safetymodeler/troubleshooting/</loc>
     <lastmod>2021-04-19T18:56:56+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tools/taskleveldesigntool/</loc>
     <lastmod>2021-04-14T12:51:44+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/concepts/metamodel/</loc>
     <lastmod>2021-04-20T11:23:43+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/concepts/transformations/</loc>
     <lastmod>2021-04-20T12:07:46+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tools/usf4cpp/</loc>
     <lastmod>2021-04-12T15:16:35+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/concepts/</loc>
     <lastmod>2021-04-19T18:51:27+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/introduction/</loc>
     <lastmod>2021-04-14T12:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tools/</loc>
     <lastmod>2021-04-19T18:52:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2021-04-19T18:51:27+02:00</lastmod>
   </url>
-  
 </urlset>
